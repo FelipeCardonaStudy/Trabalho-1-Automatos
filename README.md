@@ -3,16 +3,20 @@
 # Índice
 
 - [Descrição](#Descrição)
+- [Planejamento](#Planejamento)
 - [Tecnologias](#Tecnologias)
-- [Estrutura das Branches](#Estrutura das Branches)
-- [Padrão de Commits](#Padrão de Commits)
+- [Estrutura das Branches](#EstruturadasBranches)
+- [Padrão de Commits](#PadrãodeCommits)
 
 
 ## Descrição
-- Nomes: Breno Ferro, Felipe Cardona, Guilherme Silva e Maria Luísa Souto Professora: Profa. Dra. Andréa Aparecida Konzen
+- Nomes: Breno Ferro, Felipe Cardona, Guilherme Silva e Maria Luísa Souto 
+- Professora: Profa. Dra. Andréa Aparecida Konzen
 - Matéria: Linguagens, Autômatos e Computação
 - Repositório do trabalho: https://github.com/FelipeRavaCardona/Trabalho-1-Automatos 
-Planejamento:
+
+
+## Planejamento
 - Fazer um readme com as informações de como o programa deverá ser utilizado
 - Fazer a classe menu para incluir a gramática e dispor os resultados (terminais e não terminais) 
 - Fazer uma classe gramática com duas arraylist (uma não terminais e outra terminais)
@@ -22,7 +26,24 @@ Planejamento:
 Java
 
 ## Estrutura das Branches
-completar
+
+
+Tipos: feature, fix
+tipo/descricao-separada-por-hifen
+
+Exemplo:
+
+```bash
+git checkout -m feature/adicionar-manu
+```
 
 ## Padrão de Commits
-completar
+Nós usamos o padrão definido pela conversão de commits.
+
+feature
+
+Exemplo:
+```bash
+git commit -m "feature: adicionado o menu na aplicação"
+```
+
