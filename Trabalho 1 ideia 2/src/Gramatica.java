@@ -5,7 +5,10 @@ public class Gramatica {
     ArrayList<Character> terminais = new ArrayList<>();
     ArrayList<Character> naoTerminais = new ArrayList<>();
     Character simboloInicial;
-    ArrayList<String> gramatica = new ArrayList<>();
+
+    Character simboloProducoes;
+//TODO ARRAylist com arraylist de strings ou map
+    ArrayList<String> producoes = new ArrayList<>();
 
     public boolean adicionaTerminal(Character t){
         for(int i = 0; i < terminais.size(); i++){
@@ -43,30 +46,21 @@ public class Gramatica {
         simboloInicial = c;
     }
 
-    public Character getSimboloInicial(){
-        return simboloInicial;
+    public void setSimboloProducoes(Character c) {
+        simboloProducoes = c;
     }
 
-    public boolean adicionaGramatica(String gramatica){
-        String separadorDeCampo = ";";
-        String separadorIdentificador = ":";
-
-        ArrayList<String> producaoFinal = new ArrayList<>();
-        ArrayList<String> linhas = new ArrayList<>(Arrays.asList(separadorDeCampo));
-
-        if(simboloInicial == null || gramatica.charAt(0) != simboloInicial){
-            return false;
+    /**
+     * Padrao: nao terminal, ':', opções separadas por '|', ';' separando cada linha.
+     * @param gramatica produções a serem adicionadas
+     */
+    public void adicionaGramatica(String gramatica){
+        //TODO
+        producoes.clear();
+        String[] dados = gramatica.split(";");
+        for(String dado : dados){
+            producoes.add(dado);
         }
-
-        for(int i = 0; i < linhas.size(); i++){
-            String testa = linhas.get(i);
-            if(!testaNaoTerminal(testa.charAt(0)) || testa.charAt(1) != ':'){
-                return false;
-            }
-            
-        }
-
-        return true;
     }
 
     private boolean testaNaoTerminal(Character n){
@@ -77,5 +71,61 @@ public class Gramatica {
             }
         }
         return false;
+    }
+
+    public String formalismoGramatica(){
+        String formalismo = "G = ({";
+        for(int i = 0; i < naoTerminais.size(); i++){
+            if(i + 1 != naoTerminais.size()){
+                formalismo += naoTerminais.get(i) + ", ";
+            } else {
+                formalismo += naoTerminais.get(i);
+            }
+        }
+        formalismo += "}, {";
+        for(int i = 0; i < terminais.size(); i++){
+            if(i + 1 != terminais.size()){
+                formalismo += terminais.get(i) + ", ";
+            } else {
+                formalismo += terminais.get(i) + "}, ";
+            }
+        }
+        formalismo += "}, " + simboloProducoes + ", " + simboloInicial + ")";
+        return formalismo;
+    }
+
+    public boolean validaGramatica(){
+        if(simboloProducoes == null){
+            return false;
+        }
+        for(String linha : producoes){
+            if(linha.charAt(1) != ':'){
+                return false;
+            }
+        }
+        if(!naoTerminais.contains(simboloInicial)){
+            return false;
+        }
+        if(producoes.get(0).charAt(0) != simboloInicial){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Regular: a direita pode apenas um terminal seguido de nao terminal ou só um terminal ou vazio
+     * Livre de Contexto: apenas um nao terminal a esquerda, a direita não pode vazio
+     * @return
+     */
+    public String tipoGramatica(){
+        //TODO
+
+        return "Regular";
+    }
+
+    public ArrayList<String> geraSentencas(){
+        //TODO
+        ArrayList<String> result = new ArrayList<>();
+        return result;
     }
 }
