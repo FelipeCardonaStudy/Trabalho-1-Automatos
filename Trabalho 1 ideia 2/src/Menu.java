@@ -43,7 +43,7 @@ public class Menu {
                 case "5":
                     System.out.println("Por favor, digite o conjunto de produções que engloba a gramática.");
                     tempStr = teclado.nextLine();
-                    gramatica.adicionaGramatica(tempStr);
+                    gramatica.alteraGramatica(tempStr);
                     System.out.println("Produções alteradas.");
                     break;
 
@@ -60,7 +60,15 @@ public class Menu {
                     break;
 
                 case "8":
-                    testaGramatica();
+                    System.out.println("Por favor, digite a quantidade de sentenças exemplo que deseja.");
+                    System.out.print("Quantidade: ");
+                    String quantidadeStr = teclado.nextLine();
+                    try{
+                        int quantidade = Integer.parseInt(quantidadeStr);
+                        testaGramatica(quantidade);
+                    }catch (Exception e){
+                        System.out.println("Erro! A entrada não é um número.");
+                    }
                     break;
 
                 case "9":
@@ -171,8 +179,7 @@ public class Menu {
         System.out.println("O terminal digitado não foi encontrado no sistema.");
     }
 
-    public void testaGramatica(){
-        //TODO
+    public void testaGramatica(int quantidadeSentencas){
         if(!gramatica.validaGramatica()){
             System.out.println("A gramática é inválida.");
             return;
@@ -181,6 +188,6 @@ public class Menu {
         }
         System.out.println("Formalismo que representa a gramática: " + gramatica.formalismoGramatica());
         System.out.println("A gramática é " + gramatica.tipoGramatica());
-        System.out.println(gramatica.geraSentencas());
+        System.out.println(gramatica.geraSentencas(quantidadeSentencas));
     }
 }
