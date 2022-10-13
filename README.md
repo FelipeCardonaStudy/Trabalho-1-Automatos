@@ -34,7 +34,7 @@ tipo/descricao-separada-por-hifen
 Exemplo:
 
 ```bash
-git checkout -m feature/adicionar-manu
+git checkout -m feature/adicionar-menu
 ```
 
 ## Padrão de Commits
@@ -47,3 +47,9 @@ Exemplo:
 git commit -m "feature: adicionado o menu na aplicação"
 ```
 
+## Regras de Uso
+Para a utilização e funcionalidade correta do aplicativo, deve ser seguido um padrão de gramática, sendo ele:
+"Não terminal" seguido de ":" seguido das variacões do não terminal separadas por "|", separar cada produção por ";", sempre sem nenhum espaço entre os inputs.
+
+Exemplo:
+S:aA|bA;A:aA|bA|a|b
