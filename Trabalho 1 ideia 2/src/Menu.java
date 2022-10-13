@@ -62,7 +62,7 @@ public class Menu {
                 case "8":
                     System.out.println("Por favor, digite a quantidade de sentenças exemplo que deseja.");
                     System.out.print("Quantidade: ");
-                    String quantidadeStr = teclado.nextLine();
+                    String quantidadeStr = teclado.nextLine().trim();
                     try{
                         int quantidade = Integer.parseInt(quantidadeStr);
                         testaGramatica(quantidade);
