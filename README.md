@@ -5,10 +5,10 @@
 - [Descrição](#Descrição)
 - [Planejamento](#Planejamento)
 - [Tecnologias](#Tecnologias)
-- [Estrutura das Branches](#EstruturadasBranches)
-- [Padrão de Commits](#PadrãodeCommits)
-- [Regras de Uso](#RegrasdeUso)
-- [Implementação do Código](#ImplementaçãodoCódigo)
+- [Estrutura das Branches](#Estrutura-das-Branches)
+- [Padrão de Commits](#Padrão-de-Commits)
+- [Regras de Uso](#Regras-de-Uso)
+- [Implementação do Código](#Implementação-do-Código)
 
 
 ## Descrição
