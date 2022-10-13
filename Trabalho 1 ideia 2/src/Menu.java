@@ -66,7 +66,10 @@ public class Menu {
                     try{
                         int quantidade = Integer.parseInt(quantidadeStr);
                         testaGramatica(quantidade);
-                    }catch (Exception e){
+                    }catch (StackOverflowError sOF){
+                        System.out.println("Erro! Gramática não tem final.");
+                    }
+                    catch (NumberFormatException e){
                         System.out.println("Erro! A entrada não é um número.");
                     }
                     break;
