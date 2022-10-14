@@ -137,6 +137,13 @@ public class Gramatica {
                 return false;
             }
         }
+        for(String linha : producoesList){
+            for(int i = 0; i < linha.length(); i++){
+                if(!isTerminal(linha.charAt(i))){
+                    return false;
+                }
+            }
+        }
         if(!naoTerminais.contains(simboloInicial)){
             return false;
         }
@@ -234,6 +241,15 @@ public class Gramatica {
    public boolean isNaoTerminal(Character nT){
        for(Character test : naoTerminais){
            if(test == nT){
+               return true;
+           }
+       }
+       return false;
+   }
+
+   public boolean isTerminal(Character t){
+       for(Character test : naoTerminais){
+           if(test == t){
                return true;
            }
        }
